@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "EpilepMe",
+    "slug": "EpilepMe",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/epilep.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/epilep.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#6B2A888C"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/epilep.png",
+        "backgroundColor": "#6B2A888C"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/epilep.png"
+    }
+  }
+}
