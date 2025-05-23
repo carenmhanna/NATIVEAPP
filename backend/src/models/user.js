@@ -62,7 +62,7 @@ const userSchema =new mongoose.Schema({
 seizureTypes:{
     type: String,
     required:true,
-    enum:["Focal With Loss of Awareness"," Focal Without Loss of Awarness", "Generalized","Non-epileptic"],
+    enum:["Focal With Loss of Awareness","Focal Without Loss of Awareness", "Generalized","Non-epileptic"],
 },
 
 medication: [{

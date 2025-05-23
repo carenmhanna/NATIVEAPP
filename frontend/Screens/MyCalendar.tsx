@@ -47,7 +47,7 @@ const MyCalendar: React.FC<MyCalendarProps> = ({
   }, [seizureDates, selectedDate]);
 
   const onDayPress = (day: any) => {
-    if (day.dateString > todayStr) return; // prevent future dates
+    if (day.dateString > todayStr) return;
 
     setSelectedDate(day.dateString);
     onDateSelect(day.dateString);

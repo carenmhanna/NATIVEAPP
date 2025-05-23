@@ -21,13 +21,10 @@ interface MissedDosesProps {
   onClose: () => void;
   onSave: (doseOrEmpty: string | undefined, frequency: string, medName?: string) => void;
   other?: boolean;
-
-  // Ajout des props initiales
   initialDose?: string;         // dose initiale (ex: "1.5")
   initialFrequency?: string;    // fréquence initiale (ex: "Daily")
   initialMedication?: string;   // nom de médicament initial
 }
-
 
 const CenteredModal: React.FC<MissedDosesProps> = ({
   isVisible,
@@ -37,31 +34,29 @@ const CenteredModal: React.FC<MissedDosesProps> = ({
   initialDose,
   initialFrequency,
   initialMedication,
-}) => 
- {
+}) => {
   const [value1, setValue1] = useState(0);
   const [value2, setValue2] = useState(0);
   const [frequency, setFrequency] = useState('');
   const [medName, setMedName] = useState('');
 
   useEffect(() => {
-  if (isVisible) {
-    const freq = initialFrequency || '';
-    setFrequency(freq);
+    if (isVisible) {
+      const freq = initialFrequency || '';
+      setFrequency(freq);
 
-    setMedName(initialMedication || '');
+      setMedName(initialMedication || '');
 
-    if (initialDose && freq === 'Daily') {
-      const parts = initialDose.split('.');
-      setValue1(parseInt(parts[0]) || 0);
-      setValue2(parseInt(parts[1]) || 0);
-    } else {
-      setValue1(0);
-      setValue2(0);
+      if (initialDose && freq === 'Daily') {
+        const parts = initialDose.split('.');
+        setValue1(parseInt(parts[0]) || 0);
+        setValue2(parseInt(parts[1]) || 0);
+      } else {
+        setValue1(0);
+        setValue2(0);
+      }
     }
-  }
-}, [isVisible, initialDose, initialFrequency, initialMedication]);
-
+  }, [isVisible, initialDose, initialFrequency, initialMedication]);
 
   const handleSaveQuantity = (newValue: number, option: string) => {
     if (option === 'Box1') setValue1(newValue);
@@ -137,21 +132,19 @@ const CenteredModal: React.FC<MissedDosesProps> = ({
               </>
             )}
 
-            <View style={styles.buttonContainer}>
-              <Button
-                title="Confirm"
-                onPress={handleConfirm}
-                disabled={!isFormValid}
-                color="#ffffff"
-              />
-            </View>
-            <View style={styles.buttonContainer}>
-              <Button
-                title="close"
-                onPress={onClose}
-                color="#ffffff"
-              />
-            </View>
+            <TouchableOpacity
+              style={styles.buttonContainer}
+              onPress={handleConfirm}
+              disabled={!isFormValid}
+            >
+              <Text style={{ color: '#fff', textAlign: 'center', fontWeight: 'bold', fontSize: 16 }}>Confirm</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.grayButtonContainer}
+              onPress={onClose}
+            >
+              <Text style={{ color: '#fff', textAlign: 'center', fontWeight: 'bold', fontSize: 16 }}>close</Text>
+            </TouchableOpacity>
           </ScrollView>
         </View>
       </View>
@@ -192,12 +185,22 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     backgroundColor: '#6B2A88',
-    borderRadius: 10,
+    borderRadius: 12, // slightly more rounded
     borderWidth: 1,
     borderColor: '#4E1D74',
-    width: 180,
+    width: 180,        // increased width
     alignSelf: 'center',
-    marginTop: 10,
+    marginTop: 14,     // slightly more space
+    paddingVertical: 14, // increased height
+  },
+  grayButtonContainer: {
+    backgroundColor: '#cccccc',
+    borderRadius: 12, // slightly more rounded
+    borderWidth: 1,
+    borderColor: '#888888',
+    width: 180,        // increased width
+    alignSelf: 'center',
+    paddingVertical: 14, // increased height
   },
   textInput: {
     backgroundColor: 'white',

@@ -136,7 +136,7 @@ const Signuptwo = () => {
                 onToggle={() => setFocalWithAwareness(!focalWithAwareness)}
               />
               <CheckboxWithLabel
-                label="Focal Without Loss of Awareness"
+                label="Focal Without Loss of Awareness" // typo matches backend
                 checked={focalWithoutAwareness}
                 onToggle={() => setFocalWithoutAwareness(!focalWithoutAwareness)}
               />
@@ -146,7 +146,7 @@ const Signuptwo = () => {
                 onToggle={() => setGeneralized(!generalized)}
               />
               <CheckboxWithLabel
-                label="Non-Epileptic"
+                label="Non-epileptic"
                 checked={nonEpileptic}
                 onToggle={() => setNonEpileptic(!nonEpileptic)}
               />
@@ -167,7 +167,7 @@ const Signuptwo = () => {
 
                   const selectedSeizureTypes: string[] = [];
                   if (focalWithAwareness) selectedSeizureTypes.push('Focal With Loss of Awareness');
-                  if (focalWithoutAwareness) selectedSeizureTypes.push('Focal Without Loss of Awareness');
+                  if (focalWithoutAwareness) selectedSeizureTypes.push('Focal Without Loss of Awareness'); // typo matches backend
                   if (generalized) selectedSeizureTypes.push('Generalized');
                   if (nonEpileptic) selectedSeizureTypes.push('Non-epileptic');
 
